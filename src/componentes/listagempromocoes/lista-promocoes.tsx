@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 type PromocoesType = {
     idpromocao:number,
     titulo:string,
@@ -16,6 +17,7 @@ export default function ListaPromocoes() {
       },[])
     return (
         <>
+        <Link to={"/criacao-promocoes"}>Link Criação Promoções</Link>
             {promocoes.map(promo => {
                 return (
                     <div key={promo.idpromocao}className='promocoes-item'>

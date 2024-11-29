@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+
 type ChocolateType = {
     id:number,
     nome:string,
@@ -16,6 +18,7 @@ export default function ListaChocolate() {
     }, []);
     return (
         <>
+        <Link to={"/cadastro-chocolate"}>Link Cadastro Chocolate</Link>
             {chocolates.map(choco => {
                 return (
                     <div key={choco.id} className='chocolate-item'>
