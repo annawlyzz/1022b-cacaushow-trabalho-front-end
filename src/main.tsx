@@ -22,23 +22,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/cadastro-chocolate",
-    element:  <CadastroChocolate/>,
+    element: <><Header/> <CadastroChocolate/> <Footer/></>,
   },
   {
     path: "/cadastro-cliente",
-    element:  <CadastroCliente/>,
+    element:  <><Header/> <CadastroCliente/> <Footer/></>,
   },
   {
     path: "/cadastro-pagamento",
-    element: <CadastroPagamento/>,
+    element: <><Header/> <CadastroPagamento/> <Footer/></>,
   },
   {
     path: "/criacao-promocoes",
-    element: <CriacaoPromocoes/>,
+    element: <><Header/> <CriacaoPromocoes/> <Footer/></>,
   },
   {
     path: "/gestao-estoque",
-    element: <GestaoEstoque/>,
+    element: <><Header/> <GestaoEstoque/> <Footer/></>,
   },
 ]);
 

@@ -4,7 +4,9 @@ export default function Header() {
     return (
         <>
             <header>
-                <h1>CacauShow</h1>
+                <h1>
+                    <Link to="/">CacauShow</Link>
+                    </h1>
                 <nav>
                     <ul>
                         <Link to={"/cadastro-chocolate"}>Chocolates</Link>
