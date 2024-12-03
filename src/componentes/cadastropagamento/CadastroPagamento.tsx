@@ -17,7 +17,7 @@ export default function CadastroPagamento(){
             descricao: descricao,
             valor: valor
         }
-        fetch("http://localhost:8000/pagamento",{
+        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/pagamento",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

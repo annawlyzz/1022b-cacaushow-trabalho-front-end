@@ -19,7 +19,7 @@ export default function CriacaoPromocoes (){
             validade: validade,
             cupom: cupom
         }
-        fetch("http://localhost:8000/promocoes",{
+        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/promocoes",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

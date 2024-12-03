@@ -17,7 +17,7 @@ export default function GestaoEstoque (){
             quatidade: quantidade,
             localizacao: localizacao
         }
-        fetch("http://localhost:8000/estoque",{
+        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/estoque",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

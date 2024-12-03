@@ -19,7 +19,7 @@ export default function CadastroChocolate(){
             preco: preco,
             imagem: imagem
         }
-        fetch("http://localhost:8000/chocolates",{
+        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/chocolates",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

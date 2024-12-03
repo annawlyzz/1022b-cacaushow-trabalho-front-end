@@ -15,7 +15,7 @@ export default function CadastroCliente (){
             nome: nome,
             cpf: cpf
         }
-        fetch("https://one022b-cacaushow-trabalho.onrender.com/cliente",{
+        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/cliente",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
