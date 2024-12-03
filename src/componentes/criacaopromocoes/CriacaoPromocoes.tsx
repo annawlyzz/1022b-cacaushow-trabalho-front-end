@@ -53,7 +53,7 @@ export default function CriacaoPromocoes (){
 
     return(
         <>
-        <h1>Tela de Promoções</h1>
+        <h1>Criar Promoção</h1>
         <form onSubmit={handleForm}>
             <div>
                 <label htmlFor="itemid">Item ID: </label>

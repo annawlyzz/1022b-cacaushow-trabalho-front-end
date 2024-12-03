@@ -47,7 +47,7 @@ export default function CadastroPagamento(){
     }
     return(
         <>
-            <h1>Tela Cadastro Pagamento</h1>
+            <h1>Registrar Pagamento</h1>
             <form onSubmit={handleForm}>
                 <div>
                     <label htmlFor="idpagamento">ID Pagamento: </label>

@@ -53,7 +53,7 @@ export default function CadastroChocolate(){
 
     return(
         <>
-            <h1>Tela Cadastro Chocolates</h1>
+            <h1>Cadastrar Chocolates</h1>
             <form onSubmit={handleForm}>
                 <div>
                     <label htmlFor="id">ID: </label>
