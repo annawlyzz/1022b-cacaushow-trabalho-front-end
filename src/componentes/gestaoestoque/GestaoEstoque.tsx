@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function GestaoEstoque (){
     const navigate = useNavigate();
@@ -14,10 +14,10 @@ export default function GestaoEstoque (){
         const estoque = {
             itemId: itemId,
             nomeProduto: nomeProduto,
-            quatidade: quantidade,
+            quantidade: quantidade,
             localizacao: localizacao
         }
-        fetch("http://localhost:8000/estoque",{
+        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/estoque",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,7 +26,7 @@ export default function GestaoEstoque (){
         }).then(response => {
             if(response.status === 200){
                 alert("Estoque atualizado com sucesso")
-                navigate("/")
+                navigate("/lista-estoque")
             }
             else{
                 alert("Erro ao atualizar o Estoque")
@@ -48,7 +48,10 @@ export default function GestaoEstoque (){
 
     return(
         <>
-        <h1>Tela Gerenciar Estoque</h1>
+        <div className='container-link'>
+                <Link to={"/alterar-estoque"} className="link-bonitao">Alterar Estoque</Link>
+                </div>
+        <h1>Cadastrar Estoque</h1>
         <form onSubmit={handleForm}>
             <div>
                 <label htmlFor="itemid">Item ID: </label>
@@ -56,7 +59,7 @@ export default function GestaoEstoque (){
             </div>
             <div>
                 <label htmlFor="nomeproduto">Nome do Produto: </label>
-                <input type="text" name="id" onChange={handleNomeProduto}/>
+                <input type="text" name="nomeproduto" onChange={handleNomeProduto}/>
             </div>
             <div>
                 <label htmlFor="quantidade">Quantidade: </label>
@@ -67,7 +70,7 @@ export default function GestaoEstoque (){
                 <input type="text" name="localizacao" onChange={handleLocalizacao}/>
                 </div>
                 <div>
-                    <input type="submit" value="Gerenciar"/>
+                    <input type="submit" value="Atualizar"/>
                 </div>
             </form>
         </>

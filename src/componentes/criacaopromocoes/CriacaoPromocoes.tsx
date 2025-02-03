@@ -1,5 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function CriacaoPromocoes (){
     const navigate = useNavigate();
@@ -19,7 +19,7 @@ export default function CriacaoPromocoes (){
             validade: validade,
             cupom: cupom
         }
-        fetch("http://localhost:8000/promocoes",{
+        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/promocoes",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -28,7 +28,7 @@ export default function CriacaoPromocoes (){
         }).then(response => {
             if(response.status === 200){
                 alert("Promoção válida, aproveite!")
-                navigate("/")
+                navigate("/lista-promocoes")
             }
             else{
                 alert("Está promoção não é mais valida!")
@@ -53,14 +53,17 @@ export default function CriacaoPromocoes (){
 
     return(
         <>
-        <h1>Tela de Promoções</h1>
+        <div className='container-link'>
+                <Link to={"/alterar-promocoes"} className="link-bonitao">Alterar Promoções</Link>
+                </div>
+        <h1>Criar Promoção</h1>
         <form onSubmit={handleForm}>
             <div>
                 <label htmlFor="itemid">Item ID: </label>
                 <input type="text" name="Itemid" onChange={handleIdpromocao}/>
             </div>
             <div>
-                <label htmlFor="nomeproduto">Nome Produto: </label>
+                <label htmlFor="nomeproduto">Nome da promoção: </label>
                 <input type="text" name="nomeproduto" onChange={handleTitulo}/>
             </div>
             <div>
@@ -68,8 +71,8 @@ export default function CriacaoPromocoes (){
                 <input type="text" name="descricao" onChange={handleDescricao}/>
             </div>
             <div>
-                <label htmlFor="valiade">Validade: </label>
-                <input type="text" name="validade" onChange={handleValidade}/>
+                <label htmlFor="validade">Validade: </label>
+                <input type="date" name="validade" onChange={handleValidade}/>
             </div>
             <div>
                 <label htmlFor="cupom">Cupom: </label>

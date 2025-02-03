@@ -12,7 +12,17 @@ import CadastroPagamento from './componentes/cadastropagamento/CadastroPagamento
 import CriacaoPromocoes from './componentes/criacaopromocoes/CriacaoPromocoes.tsx';
 import GestaoEstoque from './componentes/gestaoestoque/GestaoEstoque.tsx';
 import Header from './componentes/header.tsx';
-import Footer from './componentes/footer.tsx';
+import Footer from './componentes/footer.tsx'
+import ListaCliente from './componentes/listagemcliente/lista-cliente.tsx';
+import ListaPagamento from './componentes/listagempagamento/lista-pagamento.tsx';
+import ListaChocolate from './componentes/listagemchocolates/lista-chocolates.tsx';
+import ListaPromocoes from './componentes/listagempromocoes/lista-promocoes.tsx';
+import ListaEstoque from './componentes/listagemestoque/lista-estoque.tsx';
+import AlterarChocolate from './componentes/alterarchocolate/AlterarChocolate.tsx';
+import AlterarCliente from './componentes/alterarcliente/AlterarCliente.tsx';
+import AlterarEstoque from './componentes/alterarestoque/AlterarEstoque.tsx';
+import AlterarPagamento from './componentes/alterarpagamento/AlterarPagamento.tsx';
+import AlterarPromocoes from './componentes/alterarpromocoes/AlterarPromocoes.tsx';
 
 
 const router = createBrowserRouter([
@@ -22,24 +32,65 @@ const router = createBrowserRouter([
   },
   {
     path: "/cadastro-chocolate",
-    element: <><Header/> <CadastroChocolate/> <Footer/></>,
+    element:  <><Header/> <CadastroChocolate/> <Footer/></>,
+  },
+  {
+    path: "/lista-chocolate",
+    element:  <><Header/> <ListaChocolate/> <Footer/></>,
   },
   {
     path: "/cadastro-cliente",
     element:  <><Header/> <CadastroCliente/> <Footer/></>,
   },
   {
+    path: "/lista-cliente",
+    element:  <><Header/> <ListaCliente/> <Footer/></>,
+  },
+  {
     path: "/cadastro-pagamento",
     element: <><Header/> <CadastroPagamento/> <Footer/></>,
+  },
+  {
+    path: "/lista-pagamento",
+    element: <><Header/> <ListaPagamento/> <Footer/></>,
   },
   {
     path: "/criacao-promocoes",
     element: <><Header/> <CriacaoPromocoes/> <Footer/></>,
   },
   {
+    path: "/lista-promocoes",
+    element: <><Header/> <ListaPromocoes/> <Footer/></>,
+  },
+  {
     path: "/gestao-estoque",
     element: <><Header/> <GestaoEstoque/> <Footer/></>,
   },
+  {
+    path: "/lista-estoque",
+    element: <><Header/> <ListaEstoque/> <Footer/></>,
+  },
+  {
+    path: "/alterar-chocolate",
+    element: <><Header/> <AlterarChocolate/> <Footer/></>,
+  },
+  {
+    path: "/alterar-cliente",
+    element: <><Header/> <AlterarCliente/> <Footer/></>,
+  },
+  {
+    path: "/alterar-estoque",
+    element: <><Header/> <AlterarEstoque/> <Footer/></>,
+  },
+  {
+    path: "/alterar-pagamento",
+    element: <><Header/> <AlterarPagamento/> <Footer/></>,
+  },
+  {
+    path: "/alterar-promocoes",
+    element: <><Header/> <AlterarPromocoes/> <Footer/></>,
+  },
+
 ]);
 
 createRoot(document.getElementById('root')!).render(

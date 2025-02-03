@@ -16,9 +16,13 @@ export default function ListaChocolate() {
             .then(resposta => resposta.json())
             .then(dados => setChocolates(dados))
     }, []);
+
     return (
         <>
-        <Link to={"/cadastro-chocolate"}>Link Cadastro Chocolate</Link>
+        <div className='container-link'>
+          <Link to={"/cadastro-chocolate"} className="link-bonitao">Chocolates</Link>
+          <Link to={"/alterar-chocolate"} className="link-bonitao">Alterar Chocolates</Link>
+          </div>
             {chocolates.map(choco => {
                 return (
                     <div key={choco.id} className='chocolate-item'>

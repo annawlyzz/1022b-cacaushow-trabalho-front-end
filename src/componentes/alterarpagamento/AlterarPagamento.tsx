@@ -1,40 +1,45 @@
-import { FormEvent, useState, ChangeEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
-
-export default function CadastroPagamento(){
-    const navigate = useNavigate();
-    const [idpagamento,setIdpagamento] = useState("")
-    const [formapag,setFormapag] = useState("")
-    const [descricao,setDescricao] = useState("")
-    const [valor,setValor] = useState("")
-
-    function handleForm(event:FormEvent){
-        event.preventDefault();
-        console.log("Tentei cadastrar pagamentos");
-        const pagamento = {
-            idpagamento: idpagamento,
-            formapag: formapag,
-            descricao: descricao,
-            valor: valor
-        }
-        fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/pagamento",{
-            method: "POST",
+import { Link, useParams } from "react-router-dom";
+import { FormEvent, useState, ChangeEvent, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+function AlterarPagamento(){
+    const {idpagamento} = useParams()
+    useEffect(()=>{
+        fetch(`https://one022b-cacaushow-trabalho.onrender.com/pagamento/${idpagamento}`)
+        .then(resposta=>resposta.json())
+        .then(dados=>{
+            setFormapag(dados.formapag)
+            setDescricao(dados.descricao)
+            setValor(dados.valor)
+        })
+      },[])
+      const navigate = useNavigate();
+      const [formapag,setFormapag] = useState("")
+      const [descricao,setDescricao] = useState("")
+      const [valor,setValor] = useState("")
+  
+      function handleForm(event:FormEvent){
+          event.preventDefault();
+          console.log("Tentei alterar os pagamentos");
+          const pagamento = {
+              formapag: formapag,
+              descricao: descricao,
+              valor: valor,
+          }
+          fetch(`"https://one022b-cacaushow-trabalho-p0wk.onrender.com/pagamento/${idpagamento}`,{
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(pagamento)
         }).then(response => {
             if(response.status === 200){
-                alert("Pagamento cadastrado com sucesso")
-                navigate("/lista-pagamento")
+                alert("Pagamento alterado com sucesso")
+                navigate("/")
             }
             else{
-                alert("Erro ao cadastrar pagamento")
+                alert("Erro ao alterar pagamento")
             }
         })
-    }
-    function handleIdpagamento(event:ChangeEvent<HTMLInputElement>){
-        setIdpagamento(event.target.value)
     }
     function handleFormapag(event:ChangeEvent<HTMLSelectElement>){
         setFormapag(event.target.value)
@@ -46,15 +51,16 @@ export default function CadastroPagamento(){
         setValor(event.target.value)
     }
     return(
-        <> 
-        <div className='container-link'>
-                <Link to={"/alterar-pagamento"} className="link-bonitao">Alterar Pagamento</Link>
-                </div>
-            <h1>Registrar Pagamento</h1>
+        <>
+         <div className='container-link'>
+        <Link to={"/cadastro-pagamento"} className="link-bonitao">Cadastro Pagamento</Link>
+        </div>
+        <h1>Registrar Pagamento</h1>
+        <main>
             <form onSubmit={handleForm}>
                 <div>
                     <label htmlFor="idpagamento">ID Pagamento: </label>
-                    <input type="text" name="Idpagamento" onChange={handleIdpagamento} />
+                    <input type="text" name="Idpagamento" value={idpagamento} readOnly />
                 </div>
                 <div>
                     <label htmlFor="formapag">Forma de Pagamento: </label>
@@ -77,6 +83,9 @@ export default function CadastroPagamento(){
                     <input type="submit" value="Cadastrar" />
                 </div>
             </form>
+            </main>
         </>
     )
 }
+
+export default AlterarPagamento;
