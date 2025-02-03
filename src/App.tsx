@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+
 import './App.css'
 
 type ChocolateType = {
@@ -14,14 +16,28 @@ function App() {
 
   //useEffect(O Que fazer, Quando fazer)
   useEffect(()=>{
-    fetch("https://one022b-cacaushow-trabalho-p0wk.onrender.com/chocolates")
+    fetch("https://one022b-cacaushow-trabalho.onrender.com/chocolates")
     .then(resposta=>resposta.json())
     .then(dados=>setChocolates(dados))
   },[]); 
+  function handleExcluir(id:number){
+    fetch(`https://one022b-cacaushow-trabalho.onrender.com/chocolates/${id}`,{
+      method:"DELETE"
+    })
+  .then(resposta=>{
+    if(resposta.status==200){
+      alert("Excluido com sucesso")
+      window.location.reload()
+    }
+    else{
+      alert("Erro ao excluir")
+}
+  })
+}
 
   return (
     <>
-        <div className="coitaner-chocolates">
+        <main className="coitaner-chocolates">
     {chocolates.map(choco=>{
       return(
         <div key={choco.id}className='chocolate-item'>
@@ -29,12 +45,12 @@ function App() {
           <img src={choco.imagem} alt="Imagem do chocolate" />
           <p>{choco.preco}</p>
           <p>{choco.descricao}</p>
+          <button onClick={()=>{handleExcluir(choco.id)}}>Excluir</button>
+          <Link to={`/alterar-chocolate/${choco.id}`}>Alterar</Link>
       </div>
-     ) 
+    ) 
     })}
-
-    </div>
-
+    </main>
 
     </>
   )

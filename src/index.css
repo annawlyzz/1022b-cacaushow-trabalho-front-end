@@ -25,9 +25,11 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  justify-content: center;
+  align-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #a5471fda;
 }
 
 h1 {
@@ -70,9 +72,10 @@ button:focus-visible {
 form{
   display:flex;
   flex-direction:column;
-  border: 1px solid #f0f0f0;
+  border: 1px solid black;
   padding: 2em;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #a5471fda;
 }
 form>div{
   display:flex;
@@ -93,11 +96,13 @@ form>div>input:focus{
 }
 
 main{
-  width:60vw;
-  margin:0 auto;
+    width:60vw;
+    max-width: 100%;
+    margin:0 auto;
+    background: none;
+    height: auto;
 }
 
 img{
   width: 350px;
 }
-

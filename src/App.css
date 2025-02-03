@@ -79,7 +79,6 @@ main {
   color: #888;
 }
 
-
 .nav-links {
   list-style: none;
   display: flex;
@@ -105,7 +104,7 @@ main {
 .cliente-item{
   border: 1px solid #f0f0f0;
   border-radius: 5px;
-  padding: 30px;
+  padding: 33px;
   box-shadow: 0 0 10px #f0f0f0;
 }
 .cliente-item>img{
@@ -130,7 +129,7 @@ main {
 .estoque-item{
   border: 1px solid #f0f0f0;
   border-radius: 5px;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 0 0 10px #f0f0f0;
 }
 .estoque-item>img{

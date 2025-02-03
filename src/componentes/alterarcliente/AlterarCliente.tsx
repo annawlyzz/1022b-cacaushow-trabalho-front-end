@@ -4,7 +4,7 @@ import { FormEvent, useState, ChangeEvent, useEffect } from "react";
 function AlterarCliente(){
     const {clienteId} = useParams()
     useEffect(()=>{
-        fetch(`https://one022b-cacaushow-trabalho.onrender.com/cliente/${clienteId}`)
+        fetch(`https://one022b-cacaushow-trabalho-p0wk.onrender.com/cliente/${clienteId}`)
         .then(resposta=>resposta.json())
         .then(dados=>{
             setNome(dados.nome)
@@ -22,7 +22,7 @@ function AlterarCliente(){
             nome: nome,
             cpf: cpf,
         }
-        fetch(`"https://one022b-cacaushow-trabalho-p0wk.onrender.com/cliente/${clienteId}`,{
+        fetch(`https://one022b-cacaushow-trabalho-p0wk.onrender.com/cliente/${clienteId}`,{
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -54,7 +54,7 @@ function AlterarCliente(){
         <main>
         <form onSubmit={handleForm}>
             <div>
-                <label htmlFor="clienteid">Cliente ID: </label>
+                <label htmlFor="clienteId">Cliente ID: </label>
                 <input type="text" name="clienteId" value={clienteId} readOnly/>
             </div>
             <div>

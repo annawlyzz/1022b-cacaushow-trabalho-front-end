@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 function AlterarPagamento(){
     const {idpagamento} = useParams()
     useEffect(()=>{
-        fetch(`https://one022b-cacaushow-trabalho.onrender.com/pagamento/${idpagamento}`)
+        fetch(`https://one022b-cacaushow-trabalho-p0wk.onrender.com/pagamento/${idpagamento}`)
         .then(resposta=>resposta.json())
         .then(dados=>{
             setFormapag(dados.formapag)
@@ -25,7 +25,7 @@ function AlterarPagamento(){
               descricao: descricao,
               valor: valor,
           }
-          fetch(`"https://one022b-cacaushow-trabalho-p0wk.onrender.com/pagamento/${idpagamento}`,{
+          fetch(`https://one022b-cacaushow-trabalho-p0wk.onrender.com/pagamento/${idpagamento}`,{
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -60,7 +60,7 @@ function AlterarPagamento(){
             <form onSubmit={handleForm}>
                 <div>
                     <label htmlFor="idpagamento">ID Pagamento: </label>
-                    <input type="text" name="Idpagamento" value={idpagamento} readOnly />
+                    <input type="text" name="idpagamento" value={idpagamento} readOnly />
                 </div>
                 <div>
                     <label htmlFor="formapag">Forma de Pagamento: </label>
