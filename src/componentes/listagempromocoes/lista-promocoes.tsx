@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 type PromocoesType = {
-    Idpromocao:number,
+    idpromocao:number,
     titulo:string,
     descricao:string,
     validade:Date,
@@ -33,18 +33,17 @@ export default function ListaPromocoes() {
     return (
         <>
          <div className='container-link'>
-         <Link to={"/cadastro-promocoes"} className="link-bonitao">Promocoes</Link>
-         <Link to={"/alterar-promocoes"} className="link-bonitao">Alterar Promocoes</Link>
+         <Link to={"/cadastro-promocoes"} className="link-bonitao">Promoções</Link>
          </div>
             {promocoes.map(promo => {
                 return (
-                    <div key={promo.Idpromocao}className='cliente-item'>
+                    <div key={promo.idpromocao}className='cliente-item'>
                     <h1>{promo.titulo}</h1>
                     <p>{promo.descricao}</p>
                     <p>{new Date(promo.validade).getDate()+1}/{new Date(promo.validade).getMonth()+1}/{new Date(promo.validade).getFullYear()}</p>
                     <p>{promo.cupom}</p>
-                    <button onClick={()=>{handleExcluir(promo.Idpromocao)}}>Excluir</button>
-              <Link to={`/alterar-promocoes/${promo.Idpromocao}`}>Alterar</Link>
+                    <button onClick={()=>{handleExcluir(promo.idpromocao)}}>Excluir</button>
+              <Link to={`/alterar-promocoes/${promo.idpromocao}`}>Alterar</Link>
                   </div>
                 )
             })}

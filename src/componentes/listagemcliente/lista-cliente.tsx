@@ -32,7 +32,6 @@ export default function ListaCliente() {
         <>
          <div className='container-link'>
          <Link to={"/cadastro-cliente"} className="link-bonitao">Clientes</Link>
-         <Link to={"/alterar-cliente"} className="link-bonitao">Alterar Clientes</Link>
          </div>
             {cliente.map(clien => {
                 return (
